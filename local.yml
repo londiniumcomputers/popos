@@ -1,0 +1,71 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: Update and upgrade apt packages
+  become: true
+  apt:
+    update_cache: yes
+    upgrade: 'yes'
+  
+  - name: install packages
+    package:
+      name:
+        - dconf
+        - gedit
+        - kismet
+        - gpsd 
+        - gpsd-clients
+        - ibncurses5-dev 
+        - libpcap-dev 
+        - tcpdump 
+        - libnl-dev
+        - python-gps
+
+  - name: copy wallpaper file
+    copy:
+      src: files/wallpaper.png
+      dest: /usr/share/backgrounds/ansible-wallpaper.png
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    become_user: glen
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+
+  - name: set wallpaper position
+    become_user: glen
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
+
+  - name: copy .bashrc file
+    copy:
+     src: files/bashrc
+     dest: /home/glen/.bashrc
+     owner: glen
+     group: glen
+
+  - name: add ansible user
+    user:
+      name: velociraptor
+      system: yes
+
+  - name: set up sudo for ansible user
+    copy:
+      src: files/sudoer_velociraptor
+      dest: /etc/sudoers.d/velociraptor
+      owner: root
+      group: root
+      mode: 0440
+
+  - name: add ansible-pull cron job
+    cron:
+      name: ansible auto-provision
+      user: velociraptor
+      minute: "*/10"
+      job: ansible-pull -o -U https://github.com/jlacroix82/ansible_pull_tutorial.git
