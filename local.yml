@@ -15,14 +15,8 @@
       name:
         - dconf
         - gedit
-        - kismet
-        - gpsd 
-        - gpsd-clients
-        - ibncurses5-dev 
-        - libpcap-dev 
-        - tcpdump 
-        - libnl-dev
-        - python-gps
+        - qbittorrent
+        - vlc
 
   - name: copy wallpaper file
     copy:
