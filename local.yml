@@ -13,7 +13,8 @@
   - name: install packages
     package:
       name:
-        - dconf
+        - dconf-cli
+        - python3-psutil
         - gedit
         - qbittorrent
         - vlc
