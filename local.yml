@@ -4,16 +4,9 @@
   become: true
 
   tasks:
-  
-  - name: Update and upgrade apt packages
-  become: true
-  apt:
-    update_cache: yes
-    upgrade: 'yes'
-  
- - name: Install packages
-    apt: name={{item}}
-    with_items:
+  - name: install packages
+    package:
+      name:
         - dconf-cli
         - python3-psutil
         - gedit
