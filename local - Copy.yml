@@ -11,6 +11,15 @@
     update_cache: yes
     upgrade: 'yes'
   
+  - name: install packages
+    package:
+      name:
+        - dconf-cli
+        - python3-psutil
+        - gedit
+        - qbittorrent
+        - vlc
+
   - name: copy wallpaper file
     copy:
       src: files/wallpaper.png
