@@ -13,6 +13,7 @@
         - qbittorrent
         - vlc
         - okular
+        - kodi
       state: latest  
 
   - name: copy wallpaper file
