@@ -13,6 +13,7 @@
         - qbittorrent
         - vlc
         - okular
+      state: latest  
 
   - name: copy wallpaper file
     copy:
