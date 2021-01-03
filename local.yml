@@ -18,8 +18,7 @@
         - htop
         - kismet
         - gpsd 
-        - gpsd-clients
-        - ibncurses5-dev 
+        - gpsd-clients 
         - libpcap-dev 
         - tcpdump 
         - libnl-dev
