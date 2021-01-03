@@ -78,5 +78,5 @@
     cron:
       name: ansible auto-provision
       user: velociraptor
-      minute: "*/10"
+      minute: "*/60"
       job: ansible-pull -o -U https://github.com/londiniumcomputers/popos.git
