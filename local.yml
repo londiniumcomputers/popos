@@ -16,12 +16,6 @@
         - okular
         - kodi
         - htop
-        - kismet
-        - gpsd 
-        - gpsd-clients 
-        - libpcap-dev 
-        - tcpdump 
-        - python-gps
       state: latest  
 
   - name: copy wallpaper file
