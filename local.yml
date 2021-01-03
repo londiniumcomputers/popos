@@ -21,7 +21,6 @@
         - gpsd-clients 
         - libpcap-dev 
         - tcpdump 
-        - libnl-dev
         - python-gps
       state: latest  
 
