@@ -3,10 +3,10 @@
   connection: local
   become: true
 
+
   tasks:
   - name: Update and upgrade apt packages
-  become: true
-  apt:
+    apt:
     update_cache: yes
     upgrade: 'yes'
     
