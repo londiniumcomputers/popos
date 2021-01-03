@@ -12,6 +12,7 @@
         - gedit
         - qbittorrent
         - vlc
+        - okular
 
   - name: copy wallpaper file
     copy:
